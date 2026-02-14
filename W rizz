@@ -1,19 +1,93 @@
-local phrases = {
-    "W Rizz only.",
-    "Look into my eyes, do you see the unspoken rizz?",
-    "I don't need a move set, I have infinite aura.",
-    "Is your name Garou? Because you've got me seeing stars.",
-    "Call me the King of Curses, 'cause I'm cursed with this much rizz."
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-local function speak(message)
-    -- This works for the newer Roblox TextChatService
-    local textChannel = game:GetService("TextChatService").TextChannels.RBXGeneral
-    textChannel:SendAsync(message)
-end
+        .gui-container {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 2px solid #ff007f; /* Aura Pink */
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.3);
+            width: 350px;
+        }
 
--- Loop through the rizz
-for _, msg in pairs(phrases) do
-    speak(msg)
-    task.wait(3) -- 3 second delay to avoid the chat filter/spam kick
-end
+        h1 {
+            color: #ff007f;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #ff007f;
+        }
+
+        #rizz-display {
+            color: #ffffff;
+            font-size: 1.2rem;
+            min-height: 60px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .rizz-button {
+            background: #ff007f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.4);
+            text-transform: uppercase;
+        }
+
+        .rizz-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff007f;
+        }
+
+        .rizz-button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+<div class="gui-container">
+    <h1>Aura Pink OS</h1>
+    <div id="rizz-display">Press for Unlimited Rizz...</div>
+    <button class="rizz-button" onclick="generateRizz()">Inject Rizz</button>
+</div>
+
+<script>
+    const lines = [
+        "You don't follow trends, you are the trend. 💀",
+        "Aura +10,000. No effort needed. ✅",
+        "Is it hot in here or is that just your presence?",
+        "Main character energy detected. ⚡",
+        "They don't know you're him/her yet. 🤫",
+        "Unspoken allure level: Maximum.",
+        "Stop it, you're making the room look mid. 💎",
+        "Walk in like you own the place. Because you do."
+    ];
+
+    function generateRizz() {
+        const display = document.getElementById('rizz-display');
+        const randomLine = lines[Math.floor(Math.random() * lines.length)];
+        display.innerText = randomLine;
+    }
+</script>
+
+</body>
+</html>
