@@ -1,0 +1,19 @@
+local phrases = {
+    "W Rizz only.",
+    "Look into my eyes, do you see the unspoken rizz?",
+    "I don't need a move set, I have infinite aura.",
+    "Is your name Garou? Because you've got me seeing stars.",
+    "Call me the King of Curses, 'cause I'm cursed with this much rizz."
+}
+
+local function speak(message)
+    -- This works for the newer Roblox TextChatService
+    local textChannel = game:GetService("TextChatService").TextChannels.RBXGeneral
+    textChannel:SendAsync(message)
+end
+
+-- Loop through the rizz
+for _, msg in pairs(phrases) do
+    speak(msg)
+    task.wait(3) -- 3 second delay to avoid the chat filter/spam kick
+end
